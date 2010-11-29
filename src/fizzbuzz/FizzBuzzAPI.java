@@ -21,7 +21,13 @@ public class FizzBuzzAPI {
     public static final int DIVISOR_1 = 3;
     public static final int DIVISOR_2 = 5;
 
+
     public FizzBuzzAPI() {
+
+    }
+
+    private static boolean isDivisor(int number, int divisor) {
+        return (number % divisor)==0 ? true : false ;
     }
 
     public static String getResult(int number) {
@@ -29,10 +35,10 @@ public class FizzBuzzAPI {
         if(number<FizzBuzzAPI.DOWN_LIMIT || number>FizzBuzzAPI.UP_LIMIT) {
             return null;
         } else {
-            if( number % FizzBuzzAPI.DIVISOR_1 == 0) {
+            if(isDivisor(number,FizzBuzzAPI.DIVISOR_1)) {
                 returnValue = FizzBuzzAPI.FIZZ;
             }
-            if(number % FizzBuzzAPI.DIVISOR_2 ==0) {
+            if(isDivisor(number,FizzBuzzAPI.DIVISOR_2)) {
                 if(returnValue.contentEquals(FizzBuzzAPI.FIZZ)) {
                     return FizzBuzzAPI.FIZZ_BUZZ;
                 } else {
@@ -42,4 +48,6 @@ public class FizzBuzzAPI {
         }
         return returnValue;
     }
+
+    
 }
